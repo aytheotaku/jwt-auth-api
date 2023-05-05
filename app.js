@@ -9,8 +9,8 @@ const app = express()
 app.use(morgan('dev'))
 app.use(express.json())
 require('dotenv').config()
+require('./controllers/login_controller')
 const port = process.env.PORT || 3000
-
 
 app.use('/api', auth_router)
 
