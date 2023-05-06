@@ -1,11 +1,10 @@
 const express = require('express');
 const auth_router = express.Router()
 const http_codes = require('http-errors');
-const { model } = require('mongoose');
 const { registerController } = require('../controllers/register_controller');
 const login_controller = require('../controllers/login_controller');
 const protected_route_handler = require('../utils/protected_route_handler');
-const { isManager } = require('../utils/check_role');
+const { isAuthenticated } = require('../utils/check_role');
 const { get_transactions_controller, create_transaction_controller, delete_transaction_controller, find_transaction_byId_controller, update_transaction_controller } = require('../controllers/transactions_controller');
 
 auth_router.get('/', (req, res) => {
@@ -26,12 +25,12 @@ auth_router.get('/v1/protected-route', protected_route_handler, (req, res) => {
     })
 })
 
-auth_router.get('/v1/transactions', protected_route_handler, isManager, get_transactions_controller)
-auth_router.post('/v1/transactions', protected_route_handler, isManager, create_transaction_controller)
+auth_router.get('/v1/transactions', protected_route_handler, isAuthenticated, get_transactions_controller)
+auth_router.post('/v1/transactions', protected_route_handler, isAuthenticated, create_transaction_controller)
 
-auth_router.get('/v1/transactions/:id', protected_route_handler, isManager, find_transaction_byId_controller)
-auth_router.post('/v1/transactions/:id', protected_route_handler, isManager, update_transaction_controller)
-auth_router.delete('/v1/transactions/:id', protected_route_handler, isManager, delete_transaction_controller)
+auth_router.get('/v1/transactions/:id', protected_route_handler, isAuthenticated, find_transaction_byId_controller)
+auth_router.post('/v1/transactions/:id', protected_route_handler, isAuthenticated, update_transaction_controller)
+auth_router.delete('/v1/transactions/:id', protected_route_handler, isAuthenticated, delete_transaction_controller)
 
 
 
