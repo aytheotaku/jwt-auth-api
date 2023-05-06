@@ -24,11 +24,14 @@ const registerController = async (req, res, next) => {
         })
         
         res.status(201).json({
-            status: 201,
+            success: "true",
             message: 'User Created',
-            firstName : user.firstName,
-            lastName: user.lastName,
-            email: user.email
+            status: 201,
+            data: {
+                firstName : user.firstName,
+                lastName: user.lastName,
+                email: user.email
+            }
         })
     } catch (error) {
         next(createError(400, error.message))
