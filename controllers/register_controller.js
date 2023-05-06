@@ -8,8 +8,8 @@ require('dotenv').config()
 const registerController = async (req, res, next) => {
     try {
 
-        const {firstName, lastName, email, password, repeatPassword} = req.body
-        const result = await userCreateSchema.validateAsync({firstName, lastName, email, password, repeatPassword}, {stripUnknown: true})
+        const {firstName, lastName, email, password, repeatPassword, role} = req.body
+        const result = await userCreateSchema.validateAsync({firstName, lastName, email, password, repeatPassword, role}, {stripUnknown: true})
 
         let userExists = await User.findOne({email: result.email})
         if(userExists) return next(createError.Conflict('User Already Exists'))
@@ -19,7 +19,8 @@ const registerController = async (req, res, next) => {
             firstName: result.firstName,
             lastName: result.lastName,
             email: result.email,
-            password: userPasswordHash
+            password: userPasswordHash,
+            role: result.role
         })
         
         res.status(201).json({
