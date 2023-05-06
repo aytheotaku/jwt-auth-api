@@ -9,10 +9,11 @@ require('dotenv').config()
 const protected_route_handler = async (req,res,next) => {
 
     try {
+        if(!req.headers.authorization) return next(createError.Unauthorized())
         let jwtVerifed = await verifyJwt(req)
-        console.log(jwtVerifed)
         let user = await User.findOne({_id : jwtVerifed.sub})
-        res.status(201).json(user)
+        req.user = user
+        next()
     } catch (error) {
         next(error)
     }
