@@ -2,10 +2,11 @@ const express = require('express')
 const morgan = require('morgan');
 const {auth_router} = require('./routers/auth_router');
 const createError = require('http-errors');
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const Transaction = require('./models/Transaction');
 const app = express()
 
-// app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
+
 app.use(morgan('dev'))
 app.use(express.json())
 require('dotenv').config()
