@@ -16,10 +16,19 @@ const userLoginSchema = Joi.object({
 
 const transactionCreateSchema = Joi.object({
     depositorName: Joi.string().lowercase().min(1).required().trim(),
-    transactionAmount : Joi.number().min(1).required(),
-    transactionDate: Joi.date().required()
+    transactionAmount : Joi.number().min(1).required()
+})
+const transactionUpdateSchema = Joi.object({
+    depositorName: Joi.string().lowercase().min(1).required().trim(),
+    transactionAmount : Joi.number().min(1).required()
+})
+
+const transactionQuerySchema = Joi.object({
+    min_amount: Joi.number().min(1),
+    max_amount: Joi.number().min(1),
+    name : Joi.string().min(1).trim()
 })
 
 
 
-module.exports = { userCreateSchema, userLoginSchema, transactionCreateSchema}
+module.exports = { userCreateSchema, userLoginSchema, transactionCreateSchema, transactionUpdateSchema, transactionQuerySchema}
