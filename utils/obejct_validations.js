@@ -10,7 +10,7 @@ const userCreateSchema = Joi.object({
 
 const userLoginSchema = Joi.object({
     email: Joi.string().email().required().trim(),
-    password: Joi.string().min(6).max(12).required(),
+    password: Joi.string().min(6).max(25).required(),
 })
 
 const transactionCreateSchema = Joi.object({
