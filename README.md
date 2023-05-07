@@ -8,6 +8,7 @@ Interacting with this api, you are able to create and authenticate clients using
 ---
 To access certain resources and perform certain operations, a client needs to be authenticated by being registering and logging in. Resources that require authentication will be tagged with **_'authentication-needed'_** and will require you to send a request `Authorization` header with value of `Bearer token`
 
+
 ### Register Client
 
 POST `/api/v1/register`
@@ -76,7 +77,7 @@ Example Response
   "access_token": "${jwt_token_provided}"
 }
 ```
-`${jwt_token_provided}` would be the actual jwt provided by the server. This jwt last for 1 day from the time of logging in.
+`${jwt_token_provided}` will be the actual jwt provided by in the response. This jwt will last for 1 day from the time of logging in.
 
 ---
 
