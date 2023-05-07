@@ -49,7 +49,7 @@ Example, Successful Response
   }
 }
 ```
-Example, Failure Response
+Example, Failed Response
 ```js
 {
     "success": false,
