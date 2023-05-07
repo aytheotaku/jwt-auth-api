@@ -10,7 +10,7 @@ To access certain resources and perform certain operations, a client needs to be
 
 ### Register Client
 
-POST `/api/v1/register/`
+POST `/api/v1/register`
 
 The request body needs to be in JSON format and must include the following properties
 
@@ -22,7 +22,7 @@ The request body needs to be in JSON format and must include the following prope
 
 Example
 ```js
-POST /api/v1/register/
+POST /api/v1/register
 {
   "firstName": "Tobi",
   "lastName": "John",
