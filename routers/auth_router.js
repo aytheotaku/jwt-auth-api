@@ -29,7 +29,7 @@ auth_router.get('/v1/transactions', protected_route_handler, isAuthenticated, ge
 auth_router.post('/v1/transactions', protected_route_handler, isAuthenticated, create_transaction_controller)
 
 auth_router.get('/v1/transactions/:id', protected_route_handler, isAuthenticated, find_transaction_byId_controller)
-auth_router.post('/v1/transactions/:id', protected_route_handler, isAuthenticated, update_transaction_controller)
+auth_router.patch('/v1/transactions/:id', protected_route_handler, isAuthenticated, update_transaction_controller)
 auth_router.delete('/v1/transactions/:id', protected_route_handler, isAuthenticated, delete_transaction_controller)
 
 
