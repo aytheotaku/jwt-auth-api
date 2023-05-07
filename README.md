@@ -2,7 +2,9 @@
 
 Interacting with this api, you are able to create and authenticate clients using Json Web Tokens which are needed to perform CRUD Operations on Transactions.
 
-The API is live at `https://jwt-auth-api-34os.onrender.com`
+The API is live at https://jwt-auth-api-34os.onrender.com/
+
+This API has also been documented using Postman, find this documentation here at : https://documenter.getpostman.com/view/11792638/2s93eYUBzR
 
 <!-- The API is live at ${{will_insert_api_url}} -->
 ## Getting Started
@@ -155,11 +157,11 @@ Example, Failed Response
 POST `/api/v1/transactions` <br>
 Returns all transactions. **_'Authentication-Needed'_** 
 
-### Get Transactions by filter
+### Get Transactions by Query
 POST `/api/v1/transactions/` <br>
-Returns all filtered transactions. **_'Authentication-Needed'_** 
+Returns all query transactions. **_'Authentication-Needed'_** 
 
-The request query parameters are not required but can be added if a client wants to filter the transactions to be returned, they are: 
+The request query parameters are not required but can be added if a client wants to query the transactions to be returned, they are: 
 
 - `min-amount` - Number. If provided alone returns all transactions with transaction amounts greater than or equal to provided value
 - `max-amount` - Number. If provided alone returns all transactions with transaction amounts less than or equal to provided value
