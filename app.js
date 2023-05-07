@@ -14,9 +14,10 @@ require('./controllers/login_controller')
 const port = process.env.PORT || 3000
 
 
-app.get('/', (req, res) => res.redirect('/api'))
+app.get('/', (req, res) => res.redirect('/api/v1'))
 
-app.use('/api', auth_router)
+
+app.use('/api/v1', auth_router)
 
 
 app.use(async (req, res, next) => {
