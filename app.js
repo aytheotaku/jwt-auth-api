@@ -13,6 +13,9 @@ require('dotenv').config()
 require('./controllers/login_controller')
 const port = process.env.PORT || 3000
 
+
+app.get('/', (req, res) => res.redirect('/api'))
+
 app.use('/api', auth_router)
 
 
