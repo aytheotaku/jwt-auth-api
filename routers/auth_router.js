@@ -7,9 +7,7 @@ const protected_route_handler = require('../utils/protected_route_handler');
 const { isAuthenticated } = require('../utils/check_role');
 const { get_transactions_controller, create_transaction_controller, delete_transaction_controller, find_transaction_byId_controller, update_transaction_controller } = require('../controllers/transactions_controller');
 
-auth_router.get('/', (req, res) => {
-    res.redirect('/api/v1')
-})
+
 auth_router.get('/', (req, res) => {
     res.send('Api is live').status(200)
 })
