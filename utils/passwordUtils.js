@@ -1,11 +1,15 @@
 const bcrypt = require('bcrypt')
+require('dotenv').config()
+
+
+let salt = parseInt(process.env.SALT_ROUNDS) 
 
 const generatePassword = async (password) => {
     try {
-        let passwordHash = await bcrypt.hash(password, 5)
+        let passwordHash = await bcrypt.hash(password, salt)
         return passwordHash
     } catch (error) {
-        console.log(error)
+        console.log (error)
     }
 }
 

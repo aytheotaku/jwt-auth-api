@@ -1,0 +1,5 @@
+PORT= /input your port here
+DB_CONNECTION_URI= // include your MONGODB connection uri here
+SALT_ROUNDS = //include your SALT_ROUNDS for hashing passwords 
+PRIVATE_KEY = //include your private key for your json generation here
+ISSUER= //include your issuer url here

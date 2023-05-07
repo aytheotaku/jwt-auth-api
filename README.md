@@ -3,9 +3,12 @@
 Interacting with this api, you are able to create and authenticate clients using Json Web Tokens which are needed to perform CRUD Operations on Transactions.
 
 <!-- The API is live at ${{will_insert_api_url}} -->
+## Getting Started
+To get started, clone this repository to your local machine and run `npm install` to install the required dependencies. You will also need to create a `.env` file in the root directory of the project following the format in the env_example file located in the root of this repository. You can then start the server by running `npm start`.
 
-## API Authentication
 ---
+## API Authentication
+
 To access certain resources and perform certain operations, a client needs to be authenticated by being registering and logging in. Resources that require authentication will be tagged with **_'Authentication-Needed'_** and will require you to send a request `Authorization` header with value of `Bearer access_token`
 
 
