@@ -6,7 +6,7 @@ Interacting with this api, you are able to create and authenticate clients using
 
 ## API Authentication
 ---
-To access certain resources and perform certain operations, a client needs to be authenticated by being registering and logging in. Resources that require authentication will be tagged with **_'authentication-needed'_** and will require you to send a request `Authorization` header with value of `Bearer token`
+To access certain resources and perform certain operations, a client needs to be authenticated by being registering and logging in. Resources that require authentication will be tagged with **_'authentication-needed'_** and will require you to send a request `Authorization` header with value of `Bearer access_token`
 
 
 ### Register Client
@@ -21,7 +21,7 @@ The request body needs to be in JSON format and must include the following prope
 - `password` - String - Required
 -  `repeatPassword` - String -Required  - Reference to password
 
-Example
+Example Request
 ```js
 POST /api/v1/register
 {
@@ -32,7 +32,7 @@ POST /api/v1/register
   "repeatPassword": "randompasswordbelongingtotobyjohn"
 }
 ```
-If a client is successfully created, the response object would be in the form 
+Example, Successful Response
 
 ```js
 {
@@ -46,7 +46,19 @@ If a client is successfully created, the response object would be in the form
   }
 }
 ```
-The same goes for if an error occurred while creating the client, the only difference is that the data object would be replaced with an 'error' array containing an object with a property of 'message' which describes the nature of the array.
+Example, Failure Response
+```js
+{
+    "success": false,
+    "message": "An error has occurred",
+    "status": 409,
+    "error": [
+        {
+            "message": "User Already Exists"
+        }
+    ]
+}
+```
 
 
 ### Login Client
@@ -58,7 +70,7 @@ The request body needs to be in JSON format and must include the following prope
 - `email` - String - Required
 - `password` - String - Required
 
-Example
+Example Request
 ```js
 POST /api/v1/login
 
@@ -67,9 +79,9 @@ POST /api/v1/login
   "password": "randompasswordbelongingtotobyjohn"
 }
 ```
-If a client is successfully logged in, the response object would be an object containing two properties - `email` which contains the email of the logged in client and  `access_token` which contains the JWT. This access_token must be sent in the Authorization Header of a request to a protected route. If the client does not send this header, the api will reject access.
 
-Example Response
+
+Example Success Response
 ```js
 
 {
@@ -94,4 +106,42 @@ Returns status of api.
 POST `/api/v1/transactions` <br>
 Create a transaction. **_'authentication-needed'_** 
 
+The request body needs to be in JSON format and must include the following properties
 
+- `depositorName` - String - Required
+- `transactionAmount` - Number - Required
+
+Example Request
+
+```js
+POST /api/v1/transactions
+Authorization: Bearer <access_token>
+
+{
+  "depositorName": "Thomas Shelby"
+  "transactionAmount": 2000
+}
+```
+
+Example, Successful Response 
+```js
+{ 
+  "success": "true",
+  "message": "Transaction Created",
+  "status:" 201
+}
+```
+
+Example, Failed Response
+```js
+{
+    "success": "false",
+    "message": "An error has occurred",
+    "status": 401,
+    "error": [
+        {
+            "message": "Unauthorized"
+        }
+    ]
+}
+```
