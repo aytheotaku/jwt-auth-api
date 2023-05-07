@@ -9,7 +9,7 @@ const registerController = async (req, res, next) => {
     try {
 
         const {firstName, lastName, email, password, repeatPassword, role} = req.body
-        const result = await userCreateSchema.validateAsync({firstName, lastName, email, password, repeatPassword, role})
+        const result = await userCreateSchema.validateAsync({firstName, lastName, email, password, repeatPassword})
 
         let userExists = await User.findOne({email: result.email})
         if(userExists) return next(createError.Conflict('User Already Exists'))
