@@ -10,27 +10,21 @@ const { get_transactions_controller, create_transaction_controller, delete_trans
 auth_router.get('/', (req, res) => {
     res.redirect('/api/v1')
 })
-auth_router.get('/v1', (req, res) => {
+auth_router.get('/', (req, res) => {
     res.send('Api is live').status(200)
 })
 
-auth_router.post('/v1/register', registerController)
+auth_router.post('/register', registerController)
 
-auth_router.post('/v1/login', login_controller)
+auth_router.post('/login', login_controller)
 
-auth_router.get('/v1/protected-route', protected_route_handler, (req, res) => {
-    res.status(200).json({
-        status: 'Ok',
-        message: 'Welcome to the protected route'
-    })
-})
 
-auth_router.get('/v1/transactions', protected_route_handler, isAuthenticated, get_transactions_controller)
-auth_router.post('/v1/transactions', protected_route_handler, isAuthenticated, create_transaction_controller)
+auth_router.get('/transactions', protected_route_handler, isAuthenticated, get_transactions_controller)
+auth_router.post('/transactions', protected_route_handler, isAuthenticated, create_transaction_controller)
 
-auth_router.get('/v1/transactions/:id', protected_route_handler, isAuthenticated, find_transaction_byId_controller)
-auth_router.patch('/v1/transactions/:id', protected_route_handler, isAuthenticated, update_transaction_controller)
-auth_router.delete('/v1/transactions/:id', protected_route_handler, isAuthenticated, delete_transaction_controller)
+auth_router.get('/transactions/:id', protected_route_handler, isAuthenticated, find_transaction_byId_controller)
+auth_router.patch('/transactions/:id', protected_route_handler, isAuthenticated, update_transaction_controller)
+auth_router.delete('/transactions/:id', protected_route_handler, isAuthenticated, delete_transaction_controller)
 
 
 
