@@ -34,6 +34,8 @@ const registerController = async (req, res, next) => {
             }
         })
     } catch (error) {
+        console.log(error.message)
+        if(error.message == `"repeatPassword" must be [ref:password]`) error.message = 'Both Passwords Must Match'
         next(createError(400, error.message))
     }
   
