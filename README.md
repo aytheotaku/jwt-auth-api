@@ -6,7 +6,7 @@ Interacting with this api, you are able to create and authenticate clients using
 
 ## API Authentication
 ---
-To access certain resources and perform certain operations, a client needs to be authenticated by being registering and logging in. Resources that require authentication will be tagged with **_'authentication-needed'_** and will require you to send a request `Authorization` header with value of `Bearer access_token`
+To access certain resources and perform certain operations, a client needs to be authenticated by being registering and logging in. Resources that require authentication will be tagged with **_'Authentication-Needed'_** and will require you to send a request `Authorization` header with value of `Bearer access_token`
 
 
 ### Register Client
@@ -104,7 +104,7 @@ Returns status of api.
 
 ### Create Transaction
 POST `/api/v1/transactions` <br>
-Create a transaction. **_'authentication-needed'_** 
+Creates a transaction. **_'Authentication-Needed'_** 
 
 The request body needs to be in JSON format and must include the following properties
 
@@ -145,3 +145,50 @@ Example, Failed Response
     ]
 }
 ```
+
+### Get Transactions
+POST `/api/v1/transactions` <br>
+Returns all transactions. **_'Authentication-Needed'_** 
+
+### Get Transactions by filter
+POST `/api/v1/transactions/` <br>
+Returns all filtered transactions. **_'Authentication-Needed'_** 
+
+The request query parameters are not required but can be added if a client wants to filter the transactions to be returned, they are: 
+
+- `min-amount` - Number. If provided alone returns all transactions with transaction amounts greater than or equal to provided value
+- `max-amount` - Number. If provided alone returns all transactions with transaction amounts less than or equal to provided value
+
+If both `min-amount` and `max-amount` query parameters are provided, the api returns all transactions with transaction amounts between both.
+
+- `name` - Number. If provided returns transactions by name of depositor. 
+<br>
+
+### Get a Transaction
+POST `/api/v1/transactions/:id` <br>
+Returns a transaction. **_'Authentication-Needed'_** 
+
+### Update a Transaction
+PATCH `/api/v1/transactions/:id` <br>
+Updates a transaction. **_'Authentication-Needed'_** 
+
+The request body needs to be in JSON format and must include the following properties
+
+- `depositorName` - String - Required
+- `transactionAmount` - Number - Required
+
+Example Request 
+```js
+PATCH /api/v1/transactions/:id
+Authorization: Bearer <access_token>
+
+{ 
+  "depositorName": "charles winkage",
+  "transactionAmount": 1500
+}
+```
+
+
+### Delete Transaction
+DELETE `/api/v1/transactions/:id` <br>
+Deletes a transaction. **_'Authentication-Needed'_**
