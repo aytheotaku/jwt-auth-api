@@ -6,7 +6,7 @@ Interacting with this api, you are able to create and authenticate clients using
 
 ## API Authentication
 ---
-To access certain resources and perform certain operations, a client needs to be authenticated by being registering and logging in. Resources that require authentication would be tagged with **_'authentication-needed'_** and would require you to send a request `Authorization` header with value of `Bearer token`
+To access certain resources and perform certain operations, a client needs to be authenticated by being registering and logging in. Resources that require authentication will be tagged with **_'authentication-needed'_** and will require you to send a request `Authorization` header with value of `Bearer token`
 
 ### Register Client
 
