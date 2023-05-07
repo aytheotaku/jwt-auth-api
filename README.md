@@ -161,7 +161,7 @@ The request query parameters are not required but can be added if a client wants
 
 If both `min-amount` and `max-amount` query parameters are provided, the api returns all transactions with transaction amounts between both.
 
-- `name` - Number. If provided returns transactions by name of depositor. 
+- `name` - String. If provided returns transactions by name of depositor. 
 <br>
 
 ### Get a Transaction
