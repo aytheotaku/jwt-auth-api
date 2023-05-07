@@ -1,6 +1,6 @@
 # JWT AUTH API
 
-Interacting with this api, you are able to create and authenticate client using Json Web Tokens which are needed to perform CRUD Operations on Transactions.
+Interacting with this api, you are able to create and authenticate clients using Json Web Tokens which are needed to perform CRUD Operations on Transactions.
 
 The API is live at ${{insert_api_url}}
 
