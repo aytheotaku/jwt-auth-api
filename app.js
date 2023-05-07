@@ -21,14 +21,15 @@ app.use(async (req, res, next) => {
 })
 
 
-process.nextTick(async(req, res) => {
+process.nextTick(async(req, res, next) => {
     try {
         await mongoose.connect(process.env.DB_CONNECTION_URI)
         console.log(`DB connected successfully`)
-        app.listen(port, () => console.log(`Example app listening at http://localhost:3000`))
+        app.listen(port, () => console.log(`app listening at port ${port}`))
     } catch (error) {
         console.log(error)
-        res.json({status: 500, message: error.message}).status(500)
+        // res.json({status: 500, message: error.message}).status(500)
+        return (createError.InternalServerError(error.message))
     }
 })
 
