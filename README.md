@@ -6,6 +6,8 @@ The API is live at https://jwt-auth-api-34os.onrender.com/
 
 This API has also been documented using Postman, find this documentation here at : https://documenter.getpostman.com/view/11792638/2s93eYUBzR
 
+ Please feel free to visit my Notion blog page where I elaborate on the project and share my thought process that informed its development. https://www.notion.so/JWT-Authentication-Api-a6bbb501f0784ce8a7b2461210ddd93d?pvs=4
+
 <!-- The API is live at ${{will_insert_api_url}} -->
 ## Getting Started
 To get started, clone this repository to your local machine and run `npm install` to install the required dependencies. You will also need to create a `.env` file in the root directory of the project following the format in the env_example file located in the root of this repository. You can then start the server by running `npm start`.
@@ -199,3 +201,9 @@ Authorization: Bearer <access_token>
 ### Delete Transaction
 DELETE `/api/v1/transactions/:id` <br>
 Deletes a transaction. **_'Authentication-Needed'_**
+
+---
+
+## LOOSE ENDS.
+
+Before proceeding with this documentation, I want to bring to your attention that I have purposely not created a route that enables a client to log out of the system. Please once again visit my Notion blog page where I talk about why and my intentions moving forward.
