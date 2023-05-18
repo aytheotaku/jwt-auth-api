@@ -2,7 +2,7 @@
 
 Interacting with this api, you are able to create and authenticate clients using Json Web Tokens which are needed to perform CRUD Operations on Transactions.
 
-The API is live at https://jwt-auth-api-k426.onrender.com/ 
+The API is live at https://comfortable-bat-battledress.cyclic.app/
 
 This API has also been documented using Postman, find this documentation here at : https://documenter.getpostman.com/view/11792638/2s93eYUBzR
 
