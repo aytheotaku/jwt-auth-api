@@ -2,7 +2,7 @@
 
 Interacting with this api, you are able to create and authenticate clients using Json Web Tokens which are needed to perform CRUD Operations on Transactions.
 
-The API is live at https://comfortable-bat-battledress.cyclic.app/
+The API is live at https://jwtapi.ayomideakinbo.live/
 
 This API has also been documented using Postman, find this documentation here at : https://documenter.getpostman.com/view/11792638/2s93eYUBzR
 
