@@ -5,7 +5,7 @@ const userCreateSchema = Joi.object({
     lastName : Joi.string().min(1).required().trim(),
     email: Joi.string().email().required().trim(),
     password: Joi.string().min(6).max(25).required(),
-    repeatPassword: Joi.ref('password')
+    repeatPassword: Joi.string().valid(Joi.ref('password')).required()
 })
 
 const userLoginSchema = Joi.object({
